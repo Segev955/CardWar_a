@@ -5,4 +5,25 @@
 #ifndef CARDWAR_A_GAME_HPP
 #define CARDWAR_A_GAME_HPP
 
+#include "player.hpp"
+#include <string>
+#include <iostream>
+
+class Game {
+public:
+    Game(Player p1, Player p2);
+
+    void playTurn();
+
+    string printLastTurn();
+
+    void playAll();
+
+    string printWiner();
+
+    string printLog();
+
+    string printStats();
+};
+
 #endif //CARDWAR_A_GAME_HPP
