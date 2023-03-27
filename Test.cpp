@@ -15,6 +15,12 @@ TEST_CASE("First game") {
     Player p2("Tzabar");
     Game game(p1, p2);
 
+    CHECK_THROWS(game.printWiner()); //no winner before the game starts
+    CHECK(p1.stacksize() == p2.stacksize()); // at the beginning it should be equal
+    CHECK(p1.stacksize() == 26); //at the beginning should be 26
+    CHECK(p2.stacksize() == 26);//same
+
+
     for (int i = 0; i < 5; i++) {
         CHECK_NOTHROW(game.playTurn());
     }
@@ -33,6 +39,10 @@ TEST_CASE("Second game") {
     Player p1("se");
     Player p2("tz");
     Game game(p1, p2);
+
+    CHECK(p1.stacksize() == p2.stacksize()); // at the beginning it should be equal
+    CHECK(p1.stacksize() == 26); //at the beginning should be 26
+    CHECK(p2.stacksize() == 26);//same
 
     for (int i = 0; i < 2; i++) {
         CHECK_NOTHROW(game.playTurn());
